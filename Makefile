@@ -6,23 +6,21 @@
 #    By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 17:11:17 by kurosawaits       #+#    #+#              #
-#    Updated: 2022/11/16 21:15:34 by kurosawaits      ###   ########.fr        #
+#    Updated: 2022/11/22 13:43:23 by kurosawaits      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= 	
+SRCS	= 	ft_printf.c		\
+			ft_printfput.c	\
+			ft_printfstr.c	\
+			ft_printfxput.c
 
 OBJS	=	$(SRCS:.c=.o)
-B_OBJS	=	$(B_SRCS:.c=.o)
 
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
-NAME	= libft.a
-
-ifdef FLAG
-OBJS	+= $(B_OBJS) 
-endif
+NAME	= libftprintf.a
 
 all:	$(NAME)
 
@@ -30,14 +28,11 @@ $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
 
 clean:	
-		rm -f $(OBJS) $(B_OBJS)
+		rm -f $(OBJS)
 
 fclean:	clean
 		rm -rf $(NAME)
 
 re:		fclean all
-
-bonus:
-		@make FLAG=1
 
 .PHONY:	all clean fclean re
