@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfput.c                                     :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:02 by kurosawaits       #+#    #+#             */
-/*   Updated: 2022/11/22 13:21:03 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2022/11/24 08:36:08 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	ft_putstr_fd(char *s, int fd, int numfon)
 	size_t	i;
 
 	i = 0;
-	if (s)
+	if (!s)
+		numfon += write(1, "(null)", ft_strlen("(null)"));
+	else
 	{
 		while (*(s + i))
 		{

@@ -6,7 +6,7 @@
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:20:52 by kurosawaits       #+#    #+#             */
-/*   Updated: 2022/11/22 13:41:47 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2022/11/24 00:48:25 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_printf(const char *fs, ...)
 		if (!*fs)
 			return (count);
 	}
-	count += pro_from_per(fs, count, args, specify);
+	count = pro_from_per(fs, count, args, specify);
 	va_end(args);
 	return (count);
 }
@@ -70,7 +70,7 @@ static int	pro_from_per(const char *fs, int count, va_list args, char *specify)
 
 static int	format_specifier(const char *fs, int count, va_list args)
 {
-	int				nf;
+	int	nf;
 
 	nf = 0;
 	if (*fs == '%' && *(fs + 1) == 'c')
@@ -100,17 +100,12 @@ static int	format_specifier(const char *fs, int count, va_list args)
 // 	int	num;
 // 	int	num_2;
 
-// 	// num = ft_printf("%c%s%d%i%u%x%X%%", '9', "abc", 9, 9, 9, 180, 180);
-// 	// num = ft_printf("%p", "2147483647");
-// 	// num = ft_printf("%x", 4294967294);
-// 	num = ft_printf("%x", 10000);
+// 	num = ft_printf(" NULL %s NULL ", NULL);
 // 	printf("\n");
-// 	num_2 = printf("%x", 10000);
-// 	// num_2 = printf("%x", 4294967294);
-// 	// num_2 = printf("%p", "2147483647");
+// 	num_2 = printf(" NULL %s NULL ", NULL);
 // 	printf("\n");
 // 	printf("ft_printf:	%i\n", num);
 // 	printf("printf:		%i\n", num_2);
 // }
 
-// gcc ft_printf.c ft_printfput.c ft_printfstr.c ft_printfxput.c
+// gcc ft_printf.c ft_putchar.c ft_putxnbr_fd.c ft_strchr.c 
