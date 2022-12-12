@@ -6,7 +6,7 @@
 #    By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 17:11:17 by kurosawaits       #+#    #+#              #
-#    Updated: 2022/11/22 14:29:48 by kurosawaits      ###   ########.fr        #
+#    Updated: 2022/12/12 16:25:21 by kurosawaits      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ NAME	= libftprintf.a
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+		$(MAKE) -C ./libft
+		cp libft/libft.a $(NAME)
+		ar rcs $(NAME) $(OBJS)
 
 clean:
 		rm -f $(OBJS)
