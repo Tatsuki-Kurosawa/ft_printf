@@ -6,7 +6,7 @@
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:02 by kurosawaits       #+#    #+#             */
-/*   Updated: 2022/11/24 08:36:08 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2022/12/12 16:45:16 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,26 @@ int	ft_putnbr_fd(int n, int fd, int numfon)
 	}
 	return (numfon);
 }
+
+// int	ft_putnbr_fd(int n, int fd, int numfon)
+// {
+// 	char	chara;
+
+// 	if (n >= 0)
+// 		n *= -1;
+// 	else
+// 		ft_putchar_fd('-', fd);
+// 	if (-10 < n && n < 1)
+// 	{
+// 		chara = (n % 10) * (-1) + '0';
+// 		ft_putchar_fd(chara, fd);
+// 		return ;
+// 	}
+// 	chara = (n % 10) * (-1) + '0';
+// 	ft_putnbr_fd(n / 10 * (-1), fd);
+// 	ft_putchar_fd(chara, fd);
+// 	return ;
+// }
 
 int	ft_putunbr_fd(unsigned int n, int fd, int numfon)
 {
