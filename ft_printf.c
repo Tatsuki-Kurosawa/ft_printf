@@ -6,7 +6,7 @@
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:20:52 by kurosawaits       #+#    #+#             */
-/*   Updated: 2023/02/18 16:42:30 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2023/02/18 16:49:06 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	format_specifier(const char *fs, int count, va_list args)
 		return (-1);
 }
 
-static int	pro_from_per(const char *fs, int count, va_list args, char *specify)
+static int	get_char_num(const char *fs, int count, va_list args, char *specify)
 {
 	while (*fs)
 	{
@@ -87,7 +87,7 @@ int	ft_printf(const char *fs, ...)
 		if (!*fs)
 			return (count);
 	}
-	count = pro_from_per(fs, count, args, specify);
+	count = get_char_num(fs, count, args, specify);
 	va_end(args);
 	return (count);
 }
