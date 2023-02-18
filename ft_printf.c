@@ -6,7 +6,7 @@
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:20:52 by kurosawaits       #+#    #+#             */
-/*   Updated: 2023/02/08 02:32:36 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2023/02/18 16:08:09 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static int	pro_from_per(const char *fs, int count, va_list args, char *specify)
 			count = format_specifier(fs, count, args);
 			fs += 2;
 		}
+		else if (*fs == '%' && !ft_strchr(specify, *(fs + 1)))
+			return (-1);
 		else if (*fs != '%')
 		{
 			while (*fs != '%')
@@ -62,8 +64,6 @@ static int	pro_from_per(const char *fs, int count, va_list args, char *specify)
 			if (!*fs)
 				return (count);
 		}
-		else if (*fs == '%' && !ft_strchr(specify, *(fs + 1)))
-			return (count);
 	}
 	return (count);
 }
@@ -92,20 +92,5 @@ static int	format_specifier(const char *fs, int count, va_list args)
 	else if (*fs == '%' && *(fs + 1) == '%')
 		return (count + ft_putchar_fd('%', 1));
 	else
-		return (count);
+		return (-1);
 }
-
-// int	main(void)
-// {
-// 	int	num;
-// 	int	num_2;
-
-// 	num = ft_printf(" NULL %s NULL ", NULL);
-// 	printf("\n");
-// 	num_2 = printf(" NULL %s NULL ", NULL);
-// 	printf("\n");
-// 	printf("ft_printf:	%i\n", num);
-// 	printf("printf:		%i\n", num_2);
-// }
-
-// gcc ft_printf.c ft_putchar.c ft_putxnbr_fd.c ft_strchr.c 
