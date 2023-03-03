@@ -6,7 +6,7 @@
 /*   By: kurosawaitsuki <kurosawaitsuki@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:21:02 by kurosawaits       #+#    #+#             */
-/*   Updated: 2023/02/18 15:33:39 by kurosawaits      ###   ########.fr       */
+/*   Updated: 2023/03/03 22:28:05 by kurosawaits      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	ft_putstr_fd(char *s, int fd, int numfon)
 		while (*(s + i))
 		{
 			numfon += write(fd, (s + i), 1);
+			if (i > INT_MAX)
+			{
+				numfon = -1;
+				break ;
+			}
 			i++;
 		}
 	}
